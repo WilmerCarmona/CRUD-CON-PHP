@@ -9,12 +9,17 @@
 </head>
 <body>
     <h1 class="text-center p-2">FORMULARIO DE PERSONAS</h1>
+
+        <?php
+            include "modelo/base.php";
+            include "controlador/eliminar_persona.php";
+        ?>
+
     <div class="container-fluid row">
         <form class="col-3" method="POST">
            <h3 class="text-center text-secondary p-1">Registrar persona</h3> 
 
                 <?php
-                    include "modelo/base.php";
                     include "controlador/registro_personas.php";               
                 ?>
 
@@ -78,7 +83,7 @@
                         <td><?= $datos->email_per?></td>
                         <td>
                             <a href="modificar.php?iden=<?= $datos->iden_per?>" class="btn btb-small btn-info"><i class="fa-solid fa-user-pen"></i></a>
-                            <a href="" class="btn btb-small btn-danger"><i class="fa-solid fa-user-xmark"></i></a>
+                            <a href="index.php?iden=<?= $datos->iden_per?>" class="btn btb-small btn-danger"><i class="fa-solid fa-user-xmark"></i></a>
                         </td>
                     </tr>
 
