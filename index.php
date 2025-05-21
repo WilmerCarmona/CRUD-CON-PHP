@@ -10,7 +10,7 @@
 <body>
     <h1 class="text-center p-2">FORMULARIO DE PERSONAS</h1>
     <div class="container-fluid row">
-        <form class="col-4" method="POST">
+        <form class="col-3" method="POST">
            <h3 class="text-center text-secondary p-1">Registrar persona</h3> 
 
                 <?php
@@ -46,7 +46,7 @@
             
             <button type="submit" class="btn btn-primary" name="btnregistrar" value="ok">Registrar</button>
         </form>
-        <div class="col-8 p-4">
+        <div class="col-9 p-4">
 
             <table class="table table-dark table-striped ">
                 <thead>
@@ -55,7 +55,7 @@
                         <th scope="col">NOMBRE</th>
                         <th scope="col">APELLIDOS</th> 
                         <th scope="col">IDENTIFICACIÓN</th>
-                        <th scope="col">FECHA DE NACIMIENO</th>
+                        <th scope="col">NACIMIENO</th>
                         <th scope="col">CORREO</th>
                         <th scope="col">OPCIONES</th>
                         
@@ -77,7 +77,7 @@
                         <td><?= $datos->fecha_per?></td>
                         <td><?= $datos->email_per?></td>
                         <td>
-                            <a href="" class="btn btb-small btn-info"><i class="fa-solid fa-user-pen"></i></a>
+                            <a href="modificar.php?iden=<?= $datos->iden_per?>" class="btn btb-small btn-info"><i class="fa-solid fa-user-pen"></i></a>
                             <a href="" class="btn btb-small btn-danger"><i class="fa-solid fa-user-xmark"></i></a>
                         </td>
                     </tr>
