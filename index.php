@@ -5,53 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD PHP</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/8ea4c3725a.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1 class="text-center p-2">FORMULARIO DE PERSONAS</h1>
+    <h1 class="text-center p-2 titulo-form">FORMULARIO DE PERSONAS</h1>
 
         <?php
             include "modelo/base.php";
             include "controlador/eliminar_persona.php";
         ?>
 
-    <div class="container-fluid row">
-        <form class="col-3" method="POST">
-           <h3 class="text-center text-secondary p-1">Registrar persona</h3> 
-
-                <?php
-                    include "controlador/registro_personas.php";               
-                ?>
-
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Nombre de la persona</label>
-                <input type="text" class="form-control" name="nombre">
-            </div>
-
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Apellidos de la persona</label>
-                <input type="text" class="form-control" name="apellidos">  
-            </div>
-
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Número de indentificación</label>
-                <input type="number" class="form-control" name="identif">  
-            </div>
-
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Fecha de nacimiento</label>
-                <input type="date" class="form-control" name="fecha">  
-            </div>
-
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
-                <input type="email" class="form-control" name="correo">
-                <div class="form-text">No compartiremos los datos con nadie, solo es para cumplir con el procedimiento y enviar informacion privada</div>
-            </div> 
-            
-            <button type="submit" class="btn btn-primary" name="btnregistrar" value="ok">Registrar</button>
-        </form>
-        <div class="col-9 p-4">
+    <div class="d-flex justify-content-start p-3">
+  <a href="registrar.php" class="btn btn-success">Registrar nueva persona</a>
+</div>
+        <div class="col-12 p-4">
 
             <table class="table table-dark table-striped ">
                 <thead>

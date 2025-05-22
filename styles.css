@@ -1,0 +1,68 @@
+body{
+    background-color: azure;
+    font-family: Arial, sans-serif;
+}
+
+.buen-registro{
+    background-color: #27a344;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 7px 15px;
+}
+
+.btn-registra {
+    background-color: rgb(47, 158, 33);
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border: none;
+    margin-bottom: 9px;
+    border-radius: 5px;
+    
+    transition: background-color 0.3s ease;
+}
+
+.btn-registra:hover {
+    background-color: #116b27;
+}
+
+
+.btn-volver {
+    background-color: rgb(92, 154, 235);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    margin-bottom: 7px;
+    
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-volver:hover {
+    background-color: #22587c;
+    color: white;
+}
+
+
+
+.formulario-index{
+    background-color: white;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    max-width: 700px;
+
+}
+
+.form-text{
+    color: rgb(143, 140, 140);
+}
+
+.titulo-form{
+    color: rgb(2, 2, 2);
+    margin-top: 5px;
+    
+}
+
+.titulo-regis{
+    color: rgb(0, 0, 0);
+    margin-top: 10px;
+}

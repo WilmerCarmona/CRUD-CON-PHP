@@ -22,7 +22,7 @@ if (!empty($_POST["btnregistrar"])) {
                 header("Location: " . $_SERVER['PHP_SELF'] . "?registro=exito");
                 exit();
             } else {
-                echo '<div class="alert alert-danger">Error al registrar esta persona.</div>';
+                echo '<div class="alert alert-danger">Error al registrar persona.</div>';
             }
         }
     } else {
@@ -31,6 +31,6 @@ if (!empty($_POST["btnregistrar"])) {
 }
 
 if (!empty($_GET["registro"]) && $_GET["registro"] == "exito") {
-    echo '<div class="alert alert-success">La persona se ha registrado correctamente.</div>';
+    echo '<div class="buen-registro">La persona se ha registrado.</div>';
 }
 ?>
