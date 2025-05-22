@@ -31,6 +31,6 @@ if (!empty($_POST["btnregistrar"])) {
 }
 
 if (!empty($_GET["registro"]) && $_GET["registro"] == "exito") {
-    echo '<div class="buen-registro">La persona se ha registrado.</div>';
+    echo '<div class="alert alert-success">La persona se ha registrado.</div>';
 }
 ?>
