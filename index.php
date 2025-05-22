@@ -9,17 +9,18 @@
     <script src="https://kit.fontawesome.com/8ea4c3725a.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1 class="text-center p-2 titulo-form">FORMULARIO DE PERSONAS</h1>
 
+   <strong><h1 class="titulo-index">Personal del trabajo</h1></strong> 
         <?php
             include "modelo/base.php";
             include "controlador/eliminar_persona.php";
         ?>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="mb-0">Formulario de Personas</h2>
+                <a href="registrar.php" class="btn btn-success">Registrar nueva persona</a>
+            </div>
 
-    <div class="d-flex justify-content-start p-3">
-  <a href="registrar.php" class="btn btn-success">Registrar nueva persona</a>
-</div>
-        <div class="col-12 p-4">
+        <div class="col-11 p-4">
 
             <table class="table table-dark table-striped ">
                 <thead>

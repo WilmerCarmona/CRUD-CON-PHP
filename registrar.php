@@ -1,6 +1,6 @@
 <?php
 include "modelo/base.php"; 
-include "controlador/registro_personas.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -11,11 +11,11 @@ include "controlador/registro_personas.php";
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body style="background-color: #e6fcff;">
+<body>
   <div class="container mt-4 formulario-index">
-    <h1 class="text-center">Registrar Persona</h1>
+    <h1 class="text-center h1-registrar">Registrar Persona</h1>
     <?php
-    
+    include "controlador/registro_personas.php";
     ?>
 
     <form method="POST" class="mx-auto col-md-5">
@@ -39,9 +39,10 @@ include "controlador/registro_personas.php";
         <label>Correo electrónico</label>
         <input type="email" name="correo" class="form-control" required>
       </div>
+      <div class="form-text">No se compartiran los datos, solo es para cumplir con el procedimiento</div>
       <center>
         <button type="submit" class="btn-registra btn btn-success" name="btnregistrar" value="ok">Registrar</button>
-        <a href="index.php" class="btn btn-primary">Volver</a>
+        <a href="index.php" class="btn btn-volver">Volver</a>
       </center>
     </form>
   </div>
