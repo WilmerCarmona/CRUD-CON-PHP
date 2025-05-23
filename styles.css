@@ -1,7 +1,8 @@
 .alert-registrar{
-    background-color:rgb(47, 158, 33);
+    background-color:#d1e7dd;
+    border-color: #afd8c5;
     border-radius: 7px;
-    color: #ffffff;
+    color: #0f5132;
     width: 30%;
     text-align: center;
     margin: auto;
@@ -9,6 +10,38 @@
     padding-bottom: 5px;
     padding-left: 5px;   
 }
+
+.alert-fallo{
+    
+    background-color:#f8d7da;
+    border-color: #f1b3b9;;
+    border-radius: 7px;
+    color: #842029;
+    width: 70%;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 2px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;   
+}
+
+.alert-error{
+    
+    background-color:#f8d7da;
+    border-color: #f1b3b9;;
+    border-radius: 7px;
+    color: #842029;
+    width: 60%;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 2px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;   
+}
+
+
 
 body{
     background-color: rgb(221, 230, 230);
@@ -102,7 +135,7 @@ body{
   color: #000000;       
   text-align: center;     
   font-weight: bold;      
-  margin-bottom: 20px;  
+  margin-bottom: 10px;  
 }
 
 .h1-modificar {
