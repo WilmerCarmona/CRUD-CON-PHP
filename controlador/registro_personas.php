@@ -16,14 +16,8 @@ if (!empty($_POST["btnregistrar"])) {
         if ($verificar->num_rows > 0) {
             echo '<div class="alert alert-danger">Este número de identificación ya está registrado.</div>';
         } else {
-            $sql = $base->query("insert into personas(nom_per, ape_per, iden_per, fecha_per, email_per)
-                                 values('$nombre', '$apellidos', '$identif', '$fecha', '$email')");
-            if ($sql == 1) {
-                header("Location: " . $_SERVER['PHP_SELF'] . "?registro=exito");
-                exit();
-            } else {
-                echo '<div class="alert alert-danger">Error al registrar persona  </div>';
-            }
+            
+            
         }
     } else {
         echo '<div class="alert alert-danger">Alguno de los campos está vacío</div>';
