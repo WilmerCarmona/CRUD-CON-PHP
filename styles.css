@@ -69,6 +69,24 @@ body{
     background-color: #116b27;
 }
 
+.page-link {
+    background-color: #2b3136 !important; 
+    color: rgb(255, 255, 255) !important; 
+    border: 1px solid #4c6159 !important;
+}
+
+.page-link:hover {
+    background-color: #919cbb !important;
+    color: #000000 !important;
+}
+
+.page-item.active .page-link {
+    background-color: #747d96!important;
+    border-color: #a4c0d3 !important;
+    color: #000000 !important;
+}
+
+
 .btn-registra {
     background-color: rgb(47, 158, 33);
     color: rgb(255, 255, 255);
