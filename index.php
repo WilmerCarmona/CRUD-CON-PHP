@@ -16,10 +16,10 @@
             include "controlador/eliminar_persona.php";
         ?>
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <a href="registrar.php" class="btn btn-success">Registrar nueva persona</a>
+                <a href="registrar.php" class="btn btn-registrar">Registrar nueva persona</a>
             </div>
 
-        <div class="col-11 p-4">
+        <div class="col-12 p-4">
 
             <table class="table table-dark table-striped ">
                 <thead>
@@ -38,13 +38,11 @@
                     <?php
                         include "modelo/base.php";
 
-                            $registrosPorPagina = 5;
+                        $registrosPorPagina = 7;
 
-                            // Página actual, por defecto 1
                             $pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
                             if ($pagina < 1) $pagina = 1;
 
-                            // Calcular el inicio
                             $inicio = ($pagina - 1) * $registrosPorPagina;
 
                         $sql=$base->query("select * from personas limit $inicio, $registrosPorPagina");
