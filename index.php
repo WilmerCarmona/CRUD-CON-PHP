@@ -6,7 +6,9 @@
     <title>CRUD PHP</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/8ea4c3725a.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/8ea4c3725a.js" crossorigin="anonymous"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>  
+    <link rel="stylesheet" href="sweetalert2.min.css">
 </head>
 <body>
 
@@ -67,11 +69,10 @@
                         <td><?= $datos->email_per?></td>
                         <td>
                             <a href="modificar.php?iden=<?= $datos->iden_per?>" class="btn btb-small btn-info"><i class="fa-solid fa-user-pen"></i></a>
-                            <a href="index.php?iden=<?= $datos->iden_per?>" 
-                                class="btn btb-small btn-danger" 
-                                onclick="return confirm('¿Estás seguro de que deseas eliminar a esta persona?');">
+                            <a href="#" class="btn btb-small btn-danger btn-eliminar" data-id="<?= $datos->iden_per ?>">
                                 <i class="fa-solid fa-user-xmark"></i>
                             </a>
+
                         </td>
                     </tr>
 
@@ -103,6 +104,33 @@
                 </div>                                        
 
         </div>
+
+        <?php if (isset($_GET['mensaje']) && $_GET['mensaje'] === 'eliminado'): ?>
+        <script>
+        document.querySelectorAll('.btn-eliminar').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const id = this.getAttribute('data-id');
+
+                Swal.fire({
+                    title: '¿Estás seguro?',
+                    text: "¡No podrás revertir esto!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#6c757d',
+                    confirmButtonText: 'Sí, eliminar',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = `index.php?iden=${id}&confirmado=1`;
+                    }
+                });
+            });
+        });
+        </script>
+
+<?php endif; ?>
     <script src="https://kit.fontwasome.com/646ac4fad6.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>

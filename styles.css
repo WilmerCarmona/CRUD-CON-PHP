@@ -44,7 +44,7 @@
 
 
 body{
-    background-color: rgb(221, 230, 230);
+    background-color: rgb(211, 219, 219);
     font-family: Arial, sans-serif;
 }
 
@@ -96,7 +96,7 @@ body{
 }
 
 .btn-registrar:hover {
-    background-color: #2a4d8d;
+    background-color: #1d6836;
     color: white;
 }
 
@@ -139,7 +139,7 @@ body{
 }
 
 .btn-outline-buscar:hover{
-    background-color: #973d46;
+    background-color: #1d6836;
     color: white;
 }
 
