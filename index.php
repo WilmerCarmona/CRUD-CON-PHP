@@ -17,11 +17,16 @@
         ?>
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <a href="registrar.php" class="btn btn-registrar">Registrar nueva persona</a>
+                <form method="GET" class="d-flex mb-3" role="search">
+                    <input class="form-control me-3" type="search" name="buscar" placeholder="Buscar por nombre o apellido" aria-label="Buscar"
+                        value="<?= isset($_GET['buscar']) ? htmlspecialchars($_GET['buscar']) : '' ?>">
+                    <button class="btn btn-outline-buscar" type="submit">Buscar</button>
+                </form>
             </div>
 
         <div class="col-12 p-4">
 
-            <table class="table table-dark table-striped ">
+            <table class="table table-index table-striped ">
                 <thead>
                     <tr class="text-center">
                         <th scope="col">ID</th>
