@@ -1,9 +1,9 @@
 <?php
 if (!empty($_POST["btnregistrar"])) {
-    if (!empty($_POST["nombre"]) and
-        !empty($_POST["apellidos"]) and
-        !empty($_POST["identif"]) and 
-        !empty($_POST["fecha"]) and
+    if (!empty($_POST["nombre"]) &&
+        !empty($_POST["apellidos"]) &&
+        !empty($_POST["identif"]) && 
+        !empty($_POST["fecha"]) &&
         !empty($_POST["correo"])) {
         
         $nombre = $_POST["nombre"];  
@@ -13,34 +13,69 @@ if (!empty($_POST["btnregistrar"])) {
         $email = $_POST["correo"];
 
         if (!preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$/", $nombre)) {
-            echo '<div class="alert alert-fallo">Los nombres solo deben contener letras y espacios.</div>';
+            echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Nombre inválido',
+                    text: 'Los nombres solo deben contener letras y espacios.'
+                });
+            </script>";
             return;
         }
 
         if (!preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$/", $apellidos)) {
-            echo '<div class="alert alert-fallo">Los apellidos solo deben contener letras y espacios.</div>';
+            echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Apellidos inválidos',
+                    text: 'Los apellidos solo deben contener letras y espacios.'
+                });
+            </script>";
             return;
         }
 
         $verificar = $base->query("SELECT * FROM personas WHERE iden_per = '$identif'");
         if ($verificar->num_rows > 0) {
-            echo '<div class="alert alert-fallo">Este número de identificación ya está registrado</div>';
+            echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Identificación duplicada',
+                    text: 'Este número de identificación ya está registrado.'
+                });
+            </script>";
         } else {
-            $sql = $base->query("insert into personas(nom_per, ape_per, iden_per, fecha_per, email_per)
-                                 values('$nombre', '$apellidos', '$identif', '$fecha', '$email')");
+            $sql = $base->query("INSERT INTO personas(nom_per, ape_per, iden_per, fecha_per, email_per)
+                                 VALUES('$nombre', '$apellidos', '$identif', '$fecha', '$email')");
             if ($sql == 1) {
-                header("Location: " . $_SERVER['PHP_SELF'] . "?registro=exito");
-                exit();
+                echo "<script>
+                    Swal.fire({
+                        icon: 'success',
+                        title: '¡Registro exitoso!',
+                        text: 'La persona ha sido registrada correctamente.',
+                        showConfirmButton: false,
+                        timer: 2000
+                    }).then(() => {
+                        window.location.href = 'index.php';
+                    });
+                </script>";
             } else {
-                echo '<div class="alert alert-error">Error al registrar persona</div>';
+                echo "<script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Error al registrar persona.'
+                    });
+                </script>";
             }
         }
     } else {
-        echo '<div class="alert alert-danger">Alguno de los campos está vacío</div>';
+        echo "<script>
+            Swal.fire({
+                icon: 'warning',
+                title: 'Campos vacíos',
+                text: 'Ningún campo debe estar vacío.'
+            });
+        </script>";
     }
-}
-
-if (!empty($_GET["registro"]) && $_GET["registro"] == "exito") {
-    echo '<div class="alert-registrar">La persona se ha registrado</div>';
 }
 ?>
