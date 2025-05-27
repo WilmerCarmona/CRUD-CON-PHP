@@ -52,15 +52,28 @@
 
                             $inicio = ($pagina - 1) * $registrosPorPagina;
 
-                        $sql=$base->query("select * from personas limit $inicio, $registrosPorPagina");
-                        
-                        while($datos=$sql->fetch_object()){
-                                $totalRegistros = $base->query("select count(*) as total from personas")->fetch_object()->total;
-                                $totalPaginas = ceil($totalRegistros / $registrosPorPagina);
-                            ?>
-                            
-                     <tr>
-                    
+                        $buscar = isset($_GET['buscar']) ? $base->real_escape_string($_GET['buscar']) : "";
+
+                if (!empty($buscar)) {
+                    $sqlTotal = $base->query("SELECT COUNT(*) AS total FROM personas 
+                                            WHERE nom_per LIKE '%$buscar%' OR ape_per LIKE '%$buscar%'");
+                    $totalRegistros = $sqlTotal->fetch_object()->total;
+
+                    $sql = $base->query("SELECT * FROM personas 
+                                        WHERE nom_per LIKE '%$buscar%' OR ape_per LIKE '%$buscar%' 
+                                        LIMIT $inicio, $registrosPorPagina");
+                } else {
+                    $sqlTotal = $base->query("SELECT COUNT(*) AS total FROM personas");
+                    $totalRegistros = $sqlTotal->fetch_object()->total;
+
+                    $sql = $base->query("SELECT * FROM personas LIMIT $inicio, $registrosPorPagina");
+                }
+
+                $totalPaginas = ceil($totalRegistros / $registrosPorPagina);
+
+                while($datos = $sql->fetch_object()) {
+                    ?>
+                    <tr>
                         <td><?= $datos->id_per?></td>
                         <td><?= $datos->nom_per?></td>
                         <td><?= $datos->ape_per?></td>
@@ -68,14 +81,14 @@
                         <td><?= $datos->fecha_per?></td>
                         <td><?= $datos->email_per?></td>
                         <td>
-                            <a href="modificar.php?iden=<?= $datos->iden_per?>" class="btn btb-small btn-info"><i class="fa-solid fa-user-pen"></i></a>
+                            <a href="modificar.php?iden=<?= $datos->iden_per?>" class="btn btb-small btn-info">
+                                <i class="fa-solid fa-user-pen"></i>
+                            </a>
                             <a href="#" class="btn btb-small btn-danger btn-eliminar" data-id="<?= $datos->iden_per ?>">
                                 <i class="fa-solid fa-user-xmark"></i>
                             </a>
-
                         </td>
                     </tr>
-
                         <?php }
                     
                     ?>
