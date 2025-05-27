@@ -11,6 +11,29 @@
             $iden=$_POST["identif"];
             $fech=$_POST["fecha"];
             $email=$_POST["correo"];
+
+            if (!preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$/", $nombre)) {
+                echo "<script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Nombre inválido',
+                        text: 'Los nombres solo deben contener letras y espacios.'
+                    });
+                </script>";
+                return;
+             }
+
+            if (!preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$/", $apellidos)) {
+                echo "<script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Apellidos inválidos',
+                        text: 'Los apellidos solo deben contener letras y espacios.'
+                    });
+                </script>";
+                return;
+            }
+
             $sql=$base->query("UPDATE personas SET nom_per='$nombre' , ape_per='$apellidos' , iden_per=$iden , fecha_per='$fech' , email_per='$email' where iden_per=$iden ");
             if ($sql == 1) {
                 header("location:modificar.php?iden=$iden&editado=1");
