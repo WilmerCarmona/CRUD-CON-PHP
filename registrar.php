@@ -22,15 +22,21 @@ include "modelo/base.php";
     <form method="POST" class="mx-auto col-md-5">
       <div class="mb-3">
         <label>Nombre</label>
-        <input type="text" name="nombre" class="form-control" required>
+        <input type="text" name="nombre" class="form-control" required 
+               minlength="3" maxlength="30" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]+"
+               title="Solo letras y espacios. min 3, mas 30">
       </div>
       <div class="mb-3">
         <label>Apellidos</label>
-        <input type="text" name="apellidos" class="form-control" required>
+        <input type="text" name="apellidos" class="form-control" required 
+               minlength="3" maxlength="50" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]+"
+               title="Solo letras y espacios. min 3, max 50">
       </div>
       <div class="mb-3">
         <label>Número de identificación</label>
-        <input type="number" name="identif" class="form-control" required>
+        <input type="number" name="identif" class="form-control" required 
+               minlength="8" maxlength="12" pattern="\d+"
+               title="Solo números. Entre 8 y 12 dígitos">
       </div>
       <div class="mb-3">
         <label>Fecha de nacimiento</label>
@@ -38,7 +44,7 @@ include "modelo/base.php";
       </div>
       <div class="mb-3">
         <label>Correo electrónico</label>
-        <input type="email" name="correo" class="form-control" required>
+        <input type="email" name="correo" class="form-control" required maxlength="100">
       </div>
       <div class="form-text">No se compartiran los datos, solo es para cumplir con el procedimiento</div>
       <center>
