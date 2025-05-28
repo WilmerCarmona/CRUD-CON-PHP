@@ -27,17 +27,20 @@ include "modelo/base.php";
                     ?>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Nombre de la persona</label>
-                                <input type="text" class="form-control" name="nombre" value="<?= $datos->nom_per ?>">
+                                <input type="text" class="form-control" name="nombre" required minlength="3" maxlength="30" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]+"
+                                    title="Solo letras y espacios. min 3, mas 30"  value="<?= $datos->nom_per ?>">
                             </div>
 
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Apellidos de la persona</label>
-                                <input type="text" class="form-control" name="apellidos" value="<?= $datos->ape_per ?>">  
+                                <input type="text" class="form-control" name="apellidos" required minlength="3" maxlength="50" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]+"
+                                    title="Solo letras y espacios. min 3, max 50" value="<?= $datos->ape_per ?>">  
                             </div>
 
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Número de indentificación</label>
-                                <input type="number" class="form-control" name="identif" value="<?= $datos->iden_per ?>" readonly>  
+                                <input type="number" class="form-control" name="identif" required 
+                                        minlength="8" maxlength="12" pattern="\d+"title="Solo números. Entre 8 y 12 dígitos" value="<?= $datos->iden_per ?>" readonly>  
                             </div>
 
                             <div class="mb-3">
@@ -47,7 +50,7 @@ include "modelo/base.php";
 
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
-                                <input type="email" class="form-control" name="correo" value="<?= $datos->email_per?>">
+                                <input type="email" class="form-control" name="correo" required maxlength="100" value="<?= $datos->email_per?>">
                             </div> 
                         <?php
                         }
