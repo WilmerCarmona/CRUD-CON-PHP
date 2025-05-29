@@ -11,6 +11,7 @@ if (!empty($_POST["btnregistrar"])) {
         $identif = $_POST["identif"];
         $fecha = $_POST["fecha"];
         $email = $_POST["correo"];
+        
 
         if (!preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$/", $nombre)) {
             echo "<script>
