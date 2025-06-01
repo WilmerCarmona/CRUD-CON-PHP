@@ -6,12 +6,12 @@ if (!empty($_POST["btnregistrar"])) {
         !empty($_POST["fecha"]) &&
         !empty($_POST["correo"])) {
         
-        $nombre = $_POST["nombre"];  
-        $apellidos = $_POST["apellidos"];
-        $identif = $_POST["identif"];
-        $fecha = $_POST["fecha"];
-        $email = $_POST["correo"];
-        
+        $nombre    = htmlspecialchars(trim($_POST["nombre"]), ENT_QUOTES, 'UTF-8');
+        $apellidos = htmlspecialchars(trim($_POST["apellidos"]), ENT_QUOTES, 'UTF-8');
+        $identif   = intval($_POST["identif"]);
+        $fecha     = htmlspecialchars(trim($_POST["fecha"]), ENT_QUOTES, 'UTF-8');
+        $email     = filter_var($_POST["correo"], FILTER_SANITIZE_EMAIL);
+
 
         if (!preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$/", $nombre)) {
             echo "<script>
